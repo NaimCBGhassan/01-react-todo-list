@@ -18,23 +18,41 @@ const Button = styled.button`
   padding: 0.5rem 1rem;
   margin: 0 0.2rem;
   border-radius: 0.3rem;
+
+  &:hover {
+    background-color: ${({ bgColor }) => bgColor.concat("80")};
+  }
 `;
 
-const TodoTable = ({ todo, editTodo }) => {
+const Input = styled.input`
+  flex: 1 1 auto;
+  padding: 0.5rem;
+  border: thin solid #000;
+  border-radius: 0.3rem;
+`;
+
+const TodoTable = ({ todo, todos, setTodos }) => {
+  const { tarea, id } = todo;
+
   const [bandera, setBandera] = useState(null);
-  const [edit, setEdit] = useState("");
+  const [edit, setEdit] = useState(tarea);
 
   const handleChange = (e) => setEdit(e.target.value);
   const handleEdit = (e) => setBandera(true);
+
+  const editTodo = () => setTodos(todos.map((el) => (id === el.id ? { tarea: edit, id } : el)));
   const handleUpload = (e) => {
-    editTodo(edit, todo.id);
+    if (edit) {
+      editTodo();
+    }
     setBandera(null);
   };
 
-  const handleDelete = (e) => {};
+  const handleDelete = (e) => setTodos(todos.filter((el) => el.id !== id));
+
   return (
     <Conteiner>
-      {bandera ? <input type="text" value={edit} onChange={handleChange} /> : <p>{todo.todo}</p>}
+      {bandera ? <Input type="text" value={edit} onChange={handleChange} /> : <p>{tarea}</p>}
       <div>
         {!bandera && (
           <Button bgColor={"#2E9AFE"} onClick={handleEdit}>

@@ -10,11 +10,11 @@ const Container = styled.div`
 
 const initialTodos = [
   {
-    todo: "Eat the dinner",
+    tarea: "Eat the dinner",
     id: 1,
   },
   {
-    todo: "Play the piano",
+    tarea: "Play the piano",
     id: 2,
   },
 ];
@@ -27,21 +27,17 @@ const Todo = () => {
     setTodos([
       ...todos,
       {
-        todo: data,
+        tarea: data,
         id: id,
       },
     ]);
-  };
-
-  const editTodo = (data, id) => {
-    setTodos(todos.map((el) => ((id = el.id) ? { data, id } : el)));
   };
 
   return (
     <Container>
       <TodoCreate createTodo={createTodo} />
       {todos.map((todo) => (
-        <TodoTable key={todo.id} todo={todo} editTodo={editTodo} />
+        <TodoTable key={todo.id} todo={todo} todos={todos} setTodos={setTodos} />
       ))}
     </Container>
   );
