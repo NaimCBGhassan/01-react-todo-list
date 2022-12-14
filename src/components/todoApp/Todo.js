@@ -5,7 +5,11 @@ import TodoTable from "./TodoTable";
 
 const Container = styled.div`
   max-width: 40%;
-  margin: 2rem auto;
+  margin: 0 auto 2rem auto;
+`;
+const H2 = styled.h2`
+  padding: 1rem;
+  text-align: center;
 `;
 
 const initialTodos = [
@@ -35,6 +39,7 @@ const Todo = () => {
 
   return (
     <Container>
+      <H2>Todo App</H2>
       <TodoCreate createTodo={createTodo} />
       {todos.map((todo) => (
         <TodoTable key={todo.id} todo={todo} todos={todos} setTodos={setTodos} />

@@ -1,9 +1,12 @@
 import "./App.css";
-import Todo from "./components/Todo";
+import TodoApi from "./components/todoApi/TodoApi";
+import Todo from "./components/todoApp/Todo";
 
 function App() {
   return (
     <div>
+      <TodoApi />
+      <hr />
       <Todo />
     </div>
   );

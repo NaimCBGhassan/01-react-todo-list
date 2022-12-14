@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "tarea": "Eat the dinner",
+      "id": 1
+    },
+    {
+      "tarea": "Play the piano",
+      "id": 2
+    }
+  ]
+}
