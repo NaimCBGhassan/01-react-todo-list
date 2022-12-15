@@ -23,7 +23,7 @@ const TodoCreate = ({ createTodo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (form) {
-      createTodo(form);
+      createTodo({ tarea: form, id: Date.now() });
     }
     setForm("");
   };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { helpHttp } from "../../helpers/helpHttp";
 
 const Conteiner = styled.div`
   display: flex;
@@ -38,17 +39,32 @@ const TodoTable = ({ todo, todos, setTodos }) => {
   const [edit, setEdit] = useState(tarea);
 
   const handleChange = (e) => setEdit(e.target.value);
+
   const handleEdit = (e) => setBandera(true);
 
-  const editTodo = () => setTodos(todos.map((el) => (id === el.id ? { tarea: edit, id } : el)));
+  let api = helpHttp();
+  let url = "http://localhost:5000/todos";
+
   const handleUpload = (e) => {
     if (edit) {
-      editTodo();
+      let options = {
+        body: { tarea: edit, id },
+        headers: { "content-type": "application/json" },
+      };
+      api
+        .put(`${url}/${id}`, options)
+        .then((res) => setTodos(todos.map((el) => (res.id === el.id ? { tarea: edit, id: res.id } : el))));
     }
     setBandera(null);
   };
 
-  const handleDelete = (e) => setTodos(todos.filter((el) => el.id !== id));
+  const handleDelete = (e) => {
+    let options = {
+      headers: { "content-type": "application/json" },
+    };
+
+    api.del(`${url}/${id}`, options).then(() => setTodos(todos.filter((el) => el.id !== id)));
+  };
 
   return (
     <Conteiner>

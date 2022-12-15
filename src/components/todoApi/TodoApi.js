@@ -12,6 +12,12 @@ const H2 = styled.h2`
   padding: 1rem;
   text-align: center;
 `;
+const P = styled.p`
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+`;
 
 const Todo = () => {
   const [todos, setTodos] = useState([]);
@@ -24,27 +30,18 @@ const Todo = () => {
   }, []);
 
   const createTodo = (data) => {
-    data.id = Date.now();
-
     let options = {
       body: data,
       headers: { "content-type": "application/json" },
     };
 
-    api.post(url, options).then();
-
-    /* setTodos([
-      ...todos,
-      {
-        tarea: data,
-        id: id,
-      },
-    ]); */
+    api.post(url, options).then((res) => setTodos([...todos, res]));
   };
 
   return (
     <Container>
-      <H2>Todo App</H2>
+      <H2>Todo Api</H2>
+      <P>Todo Api funciona con la API de JSON Server.</P>
       <TodoCreate createTodo={createTodo} />
       {todos.map((todo) => (
         <TodoTable key={todo.id} todo={todo} todos={todos} setTodos={setTodos} />
