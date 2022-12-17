@@ -5,7 +5,7 @@ import TodoCreate from "./TodoCreate";
 import TodoTable from "./TodoTable";
 
 const Container = styled.div`
-  max-width: 40%;
+  max-width: 60%;
   margin: 0 auto 2rem auto;
 `;
 const H2 = styled.h2`
@@ -29,20 +29,11 @@ const Todo = () => {
     api.get(url).then((res) => setTodos(res));
   }, []);
 
-  const createTodo = (data) => {
-    let options = {
-      body: data,
-      headers: { "content-type": "application/json" },
-    };
-
-    api.post(url, options).then((res) => setTodos([...todos, res]));
-  };
-
   return (
     <Container>
       <H2>Todo Api</H2>
       <P>Todo Api funciona con la API de JSON Server.</P>
-      <TodoCreate createTodo={createTodo} />
+      <TodoCreate todos={todos} setTodos={setTodos} />
       {todos.map((todo) => (
         <TodoTable key={todo.id} todo={todo} todos={todos} setTodos={setTodos} />
       ))}

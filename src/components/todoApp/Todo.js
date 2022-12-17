@@ -4,7 +4,7 @@ import TodoCreate from "./TodoCreate";
 import TodoTable from "./TodoTable";
 
 const Container = styled.div`
-  max-width: 40%;
+  max-width: 60%;
   margin: 0 auto 2rem auto;
 `;
 const H2 = styled.h2`

@@ -3,16 +3,25 @@ import styled from "styled-components";
 
 const Form = styled.form`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 1rem;
+
+  @media screen and (min-width: 578px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 const Input = styled.input`
-  flex: ${({ grow }) => grow} 1 auto;
+  flex: ${(props) => (props.type === "text" ? 1 : 0.2)} 1 auto;
   padding: 0.5rem;
-  color: ${({ color }) => color};
-  background-color: ${({ bgColor }) => bgColor};
+  color: ${(props) => (props.type === "text" ? "black" : "white")};
+  background-color: ${(props) => (props.type === "text" ? "white" : "#2e9afe")};
   border: thin solid #000;
   border-radius: 0.2rem;
+
+  &:hover {
+    background-color: ${(props) => (props.type === "text" ? "white" : "#2e9afe80")};
+  }
 `;
 
 const TodoCreate = ({ createTodo }) => {
@@ -30,8 +39,8 @@ const TodoCreate = ({ createTodo }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Input grow={1} type="text" placeholder="Write a todo" value={form} onChange={handleChange} />
-      <Input grow={0.2} color={"white"} bgColor={"#2E9AFE"} type="submit" value="Create todo" />
+      <Input type="text" placeholder="Write a todo" value={form} onChange={handleChange} />
+      <Input type="submit" value="Create todo" />
     </Form>
   );
 };
