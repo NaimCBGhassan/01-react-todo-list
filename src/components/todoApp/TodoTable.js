@@ -28,9 +28,6 @@ const ContainerButton = styled.div`
 const Button = styled.button`
   color: white;
   background-color: ${(props) => (props.className === "Delete" ? "#DF0101" : "#2E9AFE")};
-  border: thin solid #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
   width: 50%;
 
   &:hover {
@@ -39,9 +36,6 @@ const Button = styled.button`
 `;
 
 const Input = styled.input`
-  padding: 0.5rem;
-  border: thin solid #000;
-  border-radius: 0.3rem;
   width: 100%;
 `;
 

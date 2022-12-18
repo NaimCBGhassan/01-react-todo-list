@@ -14,11 +14,8 @@ const Form = styled.form`
 `;
 const Input = styled.input`
   flex: ${(props) => (props.type === "text" ? 1 : 0.2)} 1 auto;
-  padding: 0.5rem;
   color: ${(props) => (props.type === "text" ? "black" : "white")};
   background-color: ${(props) => (props.type === "text" ? "white" : "#2e9afe")};
-  border: thin solid #000;
-  border-radius: 0.2rem;
 
   &:hover {
     background-color: ${(props) => (props.type === "text" ? "white" : "#2e9afe80")};
@@ -48,7 +45,7 @@ const TodoCreate = ({ todos, setTodos }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Input type="text" placeholder="Write a todo" value={form} onChange={handleChange} />
+      <Input type="text" placeholder="Todo" value={form} onChange={handleChange} />
       <Input type="submit" value="Create todo" />
     </Form>
   );

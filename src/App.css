@@ -1,6 +1,6 @@
 /*1. CUSTOM PROPERTY*/
 :root {
-  --font: "Raleway", sans-serif;
+  --font: "Roboto", sans-serif;
 }
 
 /*2. RESETEO*/
@@ -78,4 +78,31 @@ p {
 
 body {
   background-color: lightgray;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: thin solid #555555;
+  border-radius: 0.3rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem #00000040;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: thin solid #aaaaaa;
+  border-radius: 0.3rem;
+}
+
+input[type="submit"] {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: thin solid #555555;
+  border-radius: 0.3rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem #00000040;
 }
