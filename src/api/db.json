@@ -1,16 +1,16 @@
 {
+  "users": [
+    {
+      "username": "NaimChaya",
+      "password": "12345",
+      "role": "admin",
+      "todosId": 1
+    }
+  ],
   "todos": [
     {
-      "tarea": "Eat the dinner",
-      "id": 1
-    },
-    {
-      "tarea": "Play the piano",
-      "id": 2
-    },
-    {
-      "tarea": "123",
-      "id": 1671308832060
+      "id": 1,
+      "tarea": ["Eat the dinner", "Play the piano"]
     }
   ]
 }

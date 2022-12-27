@@ -40,7 +40,7 @@ const Input = styled.input`
   width: 100%;
 `;
 
-const TodoTable = ({ todo, todos, setTodos }) => {
+const TodoTable = ({ todo, todos, setTodos, setDbUsers }) => {
   const { tarea, id } = todo;
 
   const [bandera, setBandera] = useState(null);

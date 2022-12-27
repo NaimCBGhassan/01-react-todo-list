@@ -26,7 +26,7 @@ const TodoCreate = ({ todos, setTodos }) => {
   const [form, setForm] = useState("");
 
   let api = helpHttp();
-  let url = "http://localhost:5000/todos";
+  let url = "http://localhost:5000/users";
 
   const handleChange = (e) => setForm(e.target.value);
 

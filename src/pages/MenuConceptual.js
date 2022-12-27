@@ -23,8 +23,7 @@ const NavLink = styled(Link)`
 const MenuConceptual = () => {
   return (
     <Div>
-      <H2>Menu Conceptual</H2>
-      <NavLink to="/todo-app">TodoApp</NavLink>
+      <H2> Menu Conceptual</H2>
       <NavLink to="/todo-api">TodoApi</NavLink>
     </Div>
   );
